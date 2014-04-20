@@ -1,0 +1,22 @@
+!!!
+%html
+%head
+  %meta{:charset => "UTF-8"}
+  %title "backbone"
+  %style .completed{ text-decoration: line-through; color: gray;}
+%body
+  %h1 Tasks
+  %form{:id =>"addTask"}
+    %input{:type => "text", :id => "title"}
+    %input{:type => "submit", :value => "add"}
+    %span{:id => "error"}
+  #tasks
+  %p Tasks left:<span id="count"></span>
+  %script{:type => "text/template", :id => "task-template"}
+    <input type="checkbox" class="toggle" <%= completed ? 'checked': '' %>>
+    <span class="<%= completed ? 'completed' : '' %>"><%- title %></span>
+    <span class="delete">[x]</span>
+  %script{:src => "../js/underscore.js"}
+  %script{:src => "../js/jquery.js"}
+  %script{:src => "../js/backbone.js"}
+  %script{:src => "../js/app.js"}
